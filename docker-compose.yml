@@ -1,0 +1,14 @@
+services:
+  mauzl-blog-db:
+    image: postgres:15
+    container_name: mauzl-blog-db
+    restart: always
+    env_file:
+      - .env.production
+    ports:
+      - "5433:5432"
+    volumes:
+      - mauzl_blog_data:/var/lib/postgresql/data
+
+volumes:
+  mauzl_blog_data:
