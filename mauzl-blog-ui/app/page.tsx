@@ -1,54 +1,28 @@
-"use client";
+import { PostCard } from "@/components/post-card";
+import { Post } from "@/lib/mdx";
 
-import { useEffect, useRef, useState } from "react";
-import type EditorJS from "@editorjs/editorjs";
-import { loadEditor } from "@/utils/editor";
-
-export default function BlogEditor() {
-  const editorRef = useRef<EditorJS | null>(null);
-  const [title, setTitle] = useState<string>("");
-
-  useEffect(() => {
-    let isMounted = true;
-
-    loadEditor().then((editor) => {
-      if (isMounted) {
-        editorRef.current = editor;
-      }
-    });
-
-    return () => {
-      isMounted = false;
-      editorRef.current?.destroy();
-      editorRef.current = null;
-    };
-  }, []);
-
-  const saveContent = async () => {
-    if (editorRef.current) {
-      const outputData = await editorRef.current.save();
-      localStorage.setItem("blogContent", JSON.stringify(outputData));
-      localStorage.setItem("blogTitle", title);
-      alert("Blog post saved!");
-    }
-  };
-
+export default async function PostsPage() {
+  const res = await fetch(`http://localhost:1337/api/posts`, {
+    cache: "force-cache",
+  });
+  const json = await res.json();
+  const posts = json.data as Post[];
+  console.log("SEEEERVEEEER");
   return (
-    <div className="max-w-3xl mx-auto p-5">
-      <input
-        type="text"
-        placeholder="Enter blog title..."
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="w-full p-2 text-2xl border rounded mb-4"
-      />
-      <div id="editorjs" className="border p-4 rounded bg-white"></div>
-      <button
-        onClick={saveContent}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-      >
-        Save Post
-      </button>
+    <div className="container px-4 md:px-6 py-8 md:py-12">
+      <div className="flex flex-col items-center text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+          All Posts
+        </h1>
+        <p className="text-muted-foreground max-w-[700px]">
+          Browse all our articles and tutorials
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </div>
     </div>
   );
 }

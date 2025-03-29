@@ -1,0 +1,63 @@
+---
+title: "Writing MDX Content"
+description: "Learn how to create rich content with MDX in your Next.js application"
+date: "2023-02-20"
+image: "/placeholder.svg?height=600&width=1200"
+---
+
+# Writing MDX Content
+
+MDX is a format that lets you write JSX in your markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content.
+
+## Why MDX?
+
+MDX allows you to use JSX in your markdown content. This means you can:
+
+- Import and use React components directly in your markdown
+- Use JSX syntax and expressions
+- Apply layout and styling to your markdown content
+
+## Basic Syntax
+
+MDX supports all the standard markdown syntax, plus the ability to use JSX:
+
+```mdx
+# Hello, world!
+
+This is **bold** and this is *italic*.
+
+<Button>Click me</Button>
+```
+
+## Using Components
+
+You can import and use React components in your MDX files:
+
+```mdx
+import { Button } from '@/components/ui/button'
+
+# My MDX Page
+
+Click the button below:
+
+<Button>Click me</Button>
+```
+
+## Frontmatter
+
+MDX files can include frontmatter, which is a YAML-like key-value pairing at the top of the file:
+
+```mdx
+---
+title: My Page
+description: This is my page description
+---
+
+# {frontmatter.title}
+
+{frontmatter.description}
+```
+
+## Conclusion
+
+MDX is a powerful way to write content for your Next.js application. It combines the simplicity of markdown with the power of React components.

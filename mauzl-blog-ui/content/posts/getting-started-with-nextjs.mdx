@@ -1,0 +1,46 @@
+---
+title: "Getting Started with Next.js"
+description: "Learn how to build modern web applications with Next.js"
+date: "2023-01-15"
+image: "/placeholder.svg?height=600&width=1200"
+---
+
+# Getting Started with Next.js
+
+Next.js is a React framework that gives you hahaha building blocks to create web applications. By framework, we mean Next.js handles the tooling and configuration needed for React, and provides additional structure, features, and optimizations for your application.
+
+## Why Next.js?
+
+Here are some of the key features of Next.js:
+
+- **Server-side rendering**: Next.js allows you to render your React components on the server before sending them to the client.
+- **Static site generation**: Next.js can generate static HTML files for your pages at build time.
+- **API routes**: Next.js allows you to create API endpoints as part of your Next.js application.
+- **File-based routing**: Next.js has a file-system based router built on the concept of pages.
+
+## Getting Started
+
+To create a new Next.js app, run the following command:
+
+```bash
+npx create-next-app@latest my-app
+```
+
+This will create a new Next.js app in the `my-app` directory.
+
+## Pages and Routing
+
+In Next.js, a page is a React Component exported from a file in the `pages` directory. Pages are associated with a route based on their file name.
+
+For example, if you create a file at `pages/about.js`, it will be accessible at `/about`.
+
+```jsx
+// pages/about.js
+export default function About() {
+  return <div>About Page</div>
+}
+```
+
+## Conclusion
+
+Next.js is a powerful framework for building React applications. It provides a great developer experience with all the features you need for production.

@@ -1,0 +1,57 @@
+---
+title: "Styling Your Blog with Tailwind CSS"
+description: "Learn how to use Tailwind CSS to create beautiful blog layouts"
+date: "2023-03-10"
+image: "/placeholder.svg?height=600&width=1200"
+---
+
+# Styling Your Blog with Tailwind CSS
+
+Tailwind CSS is a utility-first CSS framework that can be used to build modern websites without ever leaving your HTML. It provides low-level utility classes that let you build completely custom designs.
+
+## Why Tailwind CSS?
+
+Tailwind CSS offers several advantages:
+
+- **No more custom CSS**: Tailwind provides utility classes for nearly everything you need.
+- **Responsive design**: Tailwind makes it easy to create responsive layouts.
+- **Dark mode**: Tailwind has built-in support for dark mode.
+- **Customization**: Tailwind is highly customizable through its configuration file.
+
+## Basic Usage
+
+Here's an example of using Tailwind CSS to style a button:
+
+```jsx
+<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Click me
+</button>
+```
+
+## Styling MDX Content
+
+When using Tailwind CSS with MDX, you can use the `@tailwindcss/typography` plugin to style your markdown content:
+
+```jsx
+<article className="prose prose-lg">
+  <MDXContent />
+</article>
+```
+
+The `prose` class adds sensible typography styles to your markdown content.
+
+## Responsive Design
+
+Tailwind makes it easy to create responsive designs with its responsive modifiers:
+
+```jsx
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  {/* Content */}
+</div>
+```
+
+This creates a grid that has 1 column on small screens, 2 columns on medium screens, and 3 columns on large screens.
+
+## Conclusion
+
+Tailwind CSS is a great choice for styling your Next.js blog. It provides all the tools you need to create beautiful, responsive layouts without writing custom CSS.

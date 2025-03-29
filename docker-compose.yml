@@ -10,5 +10,17 @@ services:
     volumes:
       - mauzl_blog_data:/var/lib/postgresql/data
 
+  mauzl-blog-strapi-db:
+    image: postgres:15
+    container_name: mauzl-blog-strapi-db
+    restart: always
+    env_file:
+      - .env.production
+    ports:
+      - "5435:5432"
+    volumes:
+      - mauzl_blog_strapi_data:/var/lib/postgresql/data
+
 volumes:
   mauzl_blog_data:
+  mauzl_blog_strapi_data:
